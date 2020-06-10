@@ -25,7 +25,7 @@ HungarianAlgorithm<T>::~HungarianAlgorithm(){}
 // A single function wrapper for solving assignment problem.
 //********************************************************//
 template <typename T>
-T HungarianAlgorithm<T>::Solve(std::vector<std::vector<T> >& DistMatrix, vector<int>& Assignment)
+T HungarianAlgorithm<T>::Solve(std::vector<std::vector<T> >& DistMatrix, std::vector<int>& Assignment)
 {
 	unsigned int nRows = DistMatrix.size();
 	unsigned int nCols = DistMatrix[0].size();

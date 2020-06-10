@@ -19,6 +19,16 @@
 #include <stdlib.h>
 #include <cfloat> // for DBL_MAX
 #include <cmath>  // for fabs()
+#include <../../ext/memory/include/foonathan/memory/container.hpp> // vector, list, list_node_size
+#include <foonathan/memory/memory_pool.hpp> // memory_pool
+#include <foonathan/memory/smart_ptr.hpp> // allocate_unique
+#include <foonathan/memory/static_allocator.hpp> // static_allocator_storage, static_block_allocator
+#include <foonathan/memory/temporary_allocator.hpp> // temporary_allocator
+
+// alias namespace foonathan::memory as memory for easier access
+#include <foonathan/memory/namespace_alias.hpp>
+
+
 #include "../BaseAssociation.hpp"
 
 template <typename T> // TODO: support more than primitive types 
