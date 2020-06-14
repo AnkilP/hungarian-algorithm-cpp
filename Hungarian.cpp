@@ -15,6 +15,8 @@
 
 template <typename T>
 HungarianAlgorithm<T>::HungarianAlgorithm():BaseAssociation("Hungarian"){
+	pool(memory::list_node_size<T>::value, memory::literals::4_KiB);
+	list(pool);
 }
 
 template <typename T>
@@ -30,6 +32,8 @@ T HungarianAlgorithm<T>::Solve(std::vector<std::vector<T> >& DistMatrix, std::ve
 	unsigned int nRows = DistMatrix.size();
 	unsigned int nCols = DistMatrix[0].size();
 
+	
+
 	T *distMatrixIn = new T[nRows * nCols];
 	int *assignment = new int[nRows];
 	T cost = 0.0;
@@ -43,7 +47,7 @@ T HungarianAlgorithm<T>::Solve(std::vector<std::vector<T> >& DistMatrix, std::ve
 			distMatrixIn[i + nRows * j] = DistMatrix[i][j];
 	
 	// call solving function
-	assignmentoptimal(assignment, &cost, distMatrixIn, nRows, nCols);
+	this->assignmentoptimal(assignment, &cost, distMatrixIn, nRows, nCols);
 
 	Assignment.clear();
 	for (unsigned int r = 0; r < nRows; r++)
